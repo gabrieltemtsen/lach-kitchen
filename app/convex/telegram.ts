@@ -1,5 +1,6 @@
 import { internalAction, internalQuery } from "./_generated/server";
 import { internal } from "./_generated/api";
+import type { Doc } from "./_generated/dataModel";
 import { v } from "convex/values";
 
 const naira = (n: number) => "₦" + n.toLocaleString("en-NG");
@@ -26,9 +27,10 @@ export const notify = internalAction({
       return;
     }
 
-    const order = await ctx.runQuery(internal.telegram.getOrder, {
-      orderId: args.orderId,
-    });
+    const order: Doc<"orders"> | null = await ctx.runQuery(
+      internal.telegram.getOrder,
+      { orderId: args.orderId }
+    );
     if (!order) return;
 
     const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
