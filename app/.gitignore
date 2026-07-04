@@ -4,7 +4,7 @@ out
 .env.local
 .env*.local
 .convex
-convex/_generated
+
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
