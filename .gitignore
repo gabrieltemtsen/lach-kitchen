@@ -3,3 +3,6 @@ node_modules/
 .next/
 .env.local
 convex/_generated/
+.env
+.env.*
+!.env.local.example
