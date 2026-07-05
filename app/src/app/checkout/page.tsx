@@ -108,14 +108,19 @@ export default function CheckoutPage() {
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-bold">
-                  Notes <span className="font-normal text-forest/40">(optional)</span>
+                  Notes & allergies{" "}
+                  <span className="font-normal text-forest/40">(optional)</span>
                 </label>
                 <input
                   className={input}
-                  placeholder="e.g. extra pepper, call on arrival"
+                  placeholder="e.g. allergic to peanuts/shellfish, extra pepper, call on arrival"
                   value={form.notes}
                   onChange={(e) => setForm({ ...form, notes: e.target.value })}
                 />
+                <p className="mt-1 text-xs text-forest/50">
+                  Please mention any food allergies so we can prepare your meal
+                  safely.
+                </p>
               </div>
               {error && (
                 <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">
